@@ -1,4 +1,4 @@
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import Layout from "./Layout";
 import { createContext, useEffect, useState } from "react";
 import { languagePaths } from "./services/pathNames";
@@ -35,18 +35,17 @@ function App() {
     setLanguage(currentLanguageFinder(location.pathname));
   }, []);
 
-
   const [language, setLanguage] = useState("TR");
   const [toothState, setToothState] = useState("Soldan Seçiniz");
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <StateContext.Provider
         value={{ language, toothState, setToothState, setLanguage }}
       >
         <Layout />
       </StateContext.Provider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
