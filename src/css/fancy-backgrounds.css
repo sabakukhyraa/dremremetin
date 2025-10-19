@@ -1,0 +1,83 @@
+html {
+  --c1:#0c4a6e;
+  --c2:#075985;
+  --c3:#f0f9ff;
+  --c4:#e0f2fe;
+}
+
+.fancy-1:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 10rem);
+  opacity: 1;
+  z-index: -1;
+  background-color: var(--c3);
+}
+
+.fancy-2:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  z-index: -1;
+  background-color: var(--c2);
+
+}
+
+.fancy-3:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  z-index: -1;
+  background-color: var(--c3);
+
+}
+
+.fancy-4:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  z-index: -1;
+  background-color: var(--c2);
+
+}
+
+.fancy-5:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  z-index: -1;
+  background-color: var(--c3);
+
+}
+
+.fancy-6:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  z-index: -1;
+  background-color: var(--c2);
+
+}

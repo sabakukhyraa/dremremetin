@@ -1,0 +1,31 @@
+{
+  "dir": "ltr",
+  "name": "Uzm. Dr. Emre Metin",
+  "description": "Diş ağrılarınız için Uzm. Dr. Emre Metin'den randevu alın. Diş hastalıkları ve ortodonti hakkında bilgiler edinin.",
+  "short_name": "Emre Metin",
+  "icons": [
+    {
+      "src": "https://dremremetin.com/mani-icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://dremremetin.com/mani-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "scope": "/",
+  "start_url": "https://dremremetin.com/",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#0ea5e9",
+  "background_color": "#0ea5e9",
+  "serviceworker": {
+    "src": "https://dremremetin.com/service-worker.js",
+    "scope": "/",
+    "update_via_cache": "none"
+  }
+}

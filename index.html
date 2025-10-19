@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uzm. Dr. Emre Metin</title>
+
+    <meta property="og:title" content="Uzman Doktor Emre Metin - Ortodontist" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://dremremetin.com/assets/ex3-ea8e5cb4.webp"
+    />
+    <meta
+      property="og:description"
+      content="Buraya uğrayan herkesin gurur duyabileceği bir gülümsemeyle yaşamasını istiyorum. Profesyonel, eğlenceli, ilgili ve samimi bir ortamda her yaş için ortodontik tedavi sunuyoruz."
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@" />
+    <meta
+      name="twitter:title"
+      content="Uzman Doktor Emre Metin - Ortodontist"
+    />
+    <meta
+      name="twitter:description"
+      content="Buraya uğrayan herkesin gurur duyabileceği bir gülümsemeyle güvenle yaşamasını istiyorum. Profesyonel, eğlenceli, ilgili ve samimi bir ortamda her yaş için ortodontik tedavi sunuyoruz."
+    />
+    <meta
+      name="twitter:image"
+      content="https://dremremetin.com/assets/ex3-ea8e5cb4.webp"
+    />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-540438568"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "AW-540438568");
+    </script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker
+            .register("service-worker.js")
+            .then(
+              function (registration) {
+                console.log("Registered!");
+              },
+              function (err) {
+                console.log("ServiceWorker registration failed: ", err);
+              }
+            )
+            .catch(function (err) {
+              console.log(err);
+            });
+        });
+      } else {
+        console.log("service worker is not supported");
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMpny3VQ1YrckyN1RScB2SKQRa_CQLbxw"></script> -->
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
