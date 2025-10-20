@@ -64,13 +64,38 @@ export default function About() {
           </div>
           <div className="xl:space-y-16 space-y-8 xl:-mb-16">
             {aboutUs.article[language]}
-            <section>
-              <h2 className="xl:small-title relative text-lg z-[5] container font-semibold text-sky-800 mb-4 xl:mb-12">
-                {language == "TR" ? "Örnek Vakalar" : "Example Cases"}
-              </h2>
-              <ul id="before-after" className="grid xl:grid-cols-1 w-full">
-                {BeforeAfterCards}
-              </ul>
+
+            {/* Cases Section */}
+            <section className="py-20">
+              <div className="container mx-auto px-4 mb-12">
+                <h2 className="text-4xl lg:text-5xl lg:leading-snug font-bold text-center bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-4 leading-snug">
+                  {language === "TR"
+                    ? "Başarı Hikayelerimiz"
+                    : "Our Success Stories"}
+                </h2>
+                <p className="text-center text-gray-600 max-w-2xl mx-auto">
+                  {language === "TR"
+                    ? "Hastalarımızın tedavi öncesi ve sonrası dönüşümlerini keşfedin"
+                    : "Discover our patients' before and after transformations"}
+                </p>
+              </div>
+
+              <div className="">
+                {beforeAfter.map((item, index) => (
+                  <BeforeAfterCard
+                    key={index}
+                    video={item.video}
+                    text={item[language]}
+                    author={
+                      language === "TR"
+                        ? "Uzm. Dr. Emre Metin"
+                        : "Dr. Med. Dent. Emre Metin"
+                    }
+                    caseNumber={index + 1}
+                    index={index}
+                  />
+                ))}
+              </div>
             </section>
             <Profile isShortened={false} />
           </div>
