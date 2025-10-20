@@ -22,7 +22,7 @@ export default function BaseLink({
 
   return (
     <Link
-      className={`${baseStyles} ${variants[variant]} ${className} md:text-md text-xs`}
+      className={`${baseStyles} ${variants[variant]} ${className} xl:text-lg md:text-md text-xs`}
       target={`${isBlank ? "_blank" : "_self"}`}
       to={to}
     >
