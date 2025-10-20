@@ -4,8 +4,7 @@ import Icons from "./Icons";
 import { useLocation, useNavigate } from "react-router-dom";
 import { languagePaths } from "../services/pathNames";
 
-
-function translator(pathName, requestedLanguage, branch) {
+export function translator(pathName, requestedLanguage, branch) {
   let currentLanguage = requestedLanguage == "TR" ? "EN" : "TR";
   for (const key of Object.keys(branch)) {
     if (branch[key][currentLanguage] == pathName) {
