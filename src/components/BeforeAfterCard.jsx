@@ -151,7 +151,7 @@ export default function BeforeAfterCard({
               }`}
             >
               <p
-                className={`text-lg lg:text-xl leading-relaxed ${
+                className={`text-lg lg:text-xl leading-relaxed text-start ${
                   isEven ? "text-gray-700" : "text-gray-600"
                 }`}
               >
