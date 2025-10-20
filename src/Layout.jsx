@@ -39,8 +39,6 @@ export default function Layout() {
     }
   }, [location]);
 
-  // TODO: EN ve TR sayfaları url olarak ayrışılacak.
-  // TODO: Dil değiştirme butonu mobile optimize edilecek.
   // Müşteri istekleri.
   // TODO: "Randevu için arayınız" yazan mobilde tıklanınca otomatik olarak numarayı çeviren buton.
   // TODO: "Randevu için arayınız" butonunun altına sade bir tasarıma sahip çalışma saatleri.
@@ -51,7 +49,7 @@ export default function Layout() {
         <link rel="shortcut icon" href={siteIcon} type="image/x-icon" />
         <meta name="theme-color" content="#0ea5e9" />
 
-        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="#0ea5e9" />
         <meta
           name="apple-mobile-web-app-title"
@@ -105,7 +103,7 @@ export default function Layout() {
         <div className="fixed bottom-1/2 -right-6 lg:-right-10 rounded-lg shadow-lg z-[99999] flex items-center justify-center px-0 py-1 lg:p-1 bg-sky-800">
           {language == "TR" ? (
             <LanguageOption optionLanguage={"EN"} image={englishFlag} />
-            ) : (
+          ) : (
             <LanguageOption optionLanguage={"TR"} image={turkishFlag} />
           )}
         </div>
