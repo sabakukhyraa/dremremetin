@@ -19,8 +19,7 @@ export const homeSliderData = {
   TR: [
     {
       title: "Gerekliyse tellenin!",
-      article:
-        "Hayır, tel takmak yemek yemenize engel değil.",
+      article: "Hayır, tel takmak yemek yemenize engel değil.",
       image: ex2,
     },
     {
@@ -131,12 +130,12 @@ export const buttonsUskudar = {
         to={
           "https://www.google.com.tr/maps/dir//uzm+dr+emre+metin/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x14cab967aec44b3b:0xdc8ec03df4aeac4c?sa=X&ved=2ahUKEwiohb2b_ez9AhX4SvEDHXbbCPEQ9Rd6BAhEEAU"
         }
-        content={"Konumu Gör"}
+        content={"Konumu\u00A0Gör"}
       />
       <BaseLink
         isLink={true}
         to={"/iletisim/randevu-talebi"}
-        content={"Randevu Al"}
+        content={"Randevu\u00A0Al"}
       />
     </div>
   ),
@@ -149,7 +148,7 @@ export const buttonsUskudar = {
         to={
           "https://www.google.com.tr/maps/dir//uzm+dr+emre+metin/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x14cab967aec44b3b:0xdc8ec03df4aeac4c?sa=X&ved=2ahUKEwiohb2b_ez9AhX4SvEDHXbbCPEQ9Rd6BAhEEAU"
         }
-        content={"View Location"}
+        content={"View\u00A0Location"}
       />
       <BaseLink
         isLink={true}
@@ -739,7 +738,6 @@ export const treatmentsData = {
   },
 };
 
-
 //faq
 
 export const faqs = {
@@ -757,7 +755,7 @@ export const faqs = {
       question:
         "Ortodonti tedavilerinin çok pahalı olduğu söyleniyor, doğru mu?",
       answer:
-      "Hayır, bazı tedavilerin ücreti ilk bakışta büyük bir meblağ gibi gözükse de bu meblağ sonucunda diş, ağız, çene sağlığınızda ve sosyal hayatınızda farkedilir bir iyileşme göreceksiniz. Hayatınızın sonuna kadar güzel bir gülüşe sahip olacak ve ileride karşınıza çıkabilecek diş hastalıkları ile diş ağrılarından kurtulacaksınız. Ödediğiniz meblağ sonucunda uzun bir süre boyunca periyodik olarak doktorlarımız ile birçok kez tedavi ve kontroller için görüşeceksiniz. Ayrıca taksit gibi ödeme kolaylığı sunacak seçeneklerimiz de mevcut. Ücret bilgisi almak ve bizden dişlerinizin detaylı analizini duymak için randevu alın!",
+        "Hayır, bazı tedavilerin ücreti ilk bakışta büyük bir meblağ gibi gözükse de bu meblağ sonucunda diş, ağız, çene sağlığınızda ve sosyal hayatınızda farkedilir bir iyileşme göreceksiniz. Hayatınızın sonuna kadar güzel bir gülüşe sahip olacak ve ileride karşınıza çıkabilecek diş hastalıkları ile diş ağrılarından kurtulacaksınız. Ödediğiniz meblağ sonucunda uzun bir süre boyunca periyodik olarak doktorlarımız ile birçok kez tedavi ve kontroller için görüşeceksiniz. Ayrıca taksit gibi ödeme kolaylığı sunacak seçeneklerimiz de mevcut. Ücret bilgisi almak ve bizden dişlerinizin detaylı analizini duymak için randevu alın!",
     },
     {
       question: "Diş teli takmak acı verir mi?",

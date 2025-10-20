@@ -57,10 +57,7 @@ export default function Home() {
             name="keyword"
             content="emre metin diş, ortodonti, diş tedavileri, ortodonti pahalı mıdır?"
           />
-          <meta
-            property="og:url"
-            content="https://dremremetin.com/"
-          />
+          <meta property="og:url" content="https://dremremetin.com/" />
           <link rel="canonical" href="https://dremremetin.com/" />
           <link rel="manifest" href="https://dremremetin.com/manifest.json" />
           <link rel="shortcut icon" href={siteIcon} type="image/x-icon" />
@@ -95,9 +92,9 @@ export default function Home() {
               </Link>
             </div>
           </section>
-          <section className="bg-sky-700 w-full">
+          <section className="bg-sky-200 w-full">
             <div className="grid grid-cols-1 xl:gap-12 gap-8 container py-8 xl:py-16">
-              <h2 className="xl:medium-title small-title xl:pb-4 text-sky-50">
+              <h2 className="xl:medium-title small-title xl:pb-4 text-sky-600">
                 {language == "TR" ? "Klinikler" : "Clinics"}
               </h2>
               <InfoSection
