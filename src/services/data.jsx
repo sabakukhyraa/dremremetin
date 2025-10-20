@@ -535,18 +535,18 @@ export const teethNumber = {
 
 export const treatmentsData = {
   title: {
-    EN: "Treatments",
-    TR: "Tedaviler",
+    EN: "Orthodontic Treatments",
+    TR: "Ortodontik Tedaviler",
   },
   subTitle: {
     EN: (
       <h2 className="xl:small-title text-lg font-semibold text-sky-700 pb-4">
-        Orthodontic Treatments and Their Different Types
+        Orthodontic Treatments
       </h2>
     ),
     TR: (
       <h2 className="xl:small-title text-lg font-semibold text-sky-700 pb-4">
-        Ortodontik Tedaviler ve Farklı Çeşitleri
+        Ortodontik Tedaviler
       </h2>
     ),
   },

@@ -57,7 +57,6 @@ export default function Treatments() {
             {treatmentsData.title[language]}
           </h1>
           <div className="">
-            {treatmentsData.subTitle[language]}
             {treatmentsData.article1[language]}
             <div
               id="treatments"
