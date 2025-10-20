@@ -238,12 +238,8 @@ export const footerData = {
   },
   bottomInfo: {
     rights: {
-      EN: "© 2023 Emre Metin | All rights reserved",
-      TR: "© 2023 Emre Metin | Tüm hakları saklıdır",
-    },
-    author: {
-      EN: "Developed & Designed by Ali Kerem Ata",
-      TR: "Developed & Designed by Ali Kerem Ata",
+      EN: "© 2025 Emre Metin | All rights reserved",
+      TR: "© 2025 Emre Metin | Tüm hakları saklıdır",
     },
   },
 };

@@ -88,11 +88,15 @@ export default function TheFooter() {
             <div className="font-medium">
               {footerData.bottomInfo.rights[language]}
             </div>
-            <div className="text-xs">Developed & Designed by Ali Kerem Ata</div>
           </div>
           <div className="flex items-center justify-center gap-3 text-center xl:text-end">
             {footerData.socialMedia.map((e, i) => (
-              <a href={e.url} key={i} target="_blank" aria-label={e.description}>
+              <a
+                href={e.url}
+                key={i}
+                target="_blank"
+                aria-label={e.description}
+              >
                 <Icons iconName={e.icon} size={30} />
               </a>
             ))}
