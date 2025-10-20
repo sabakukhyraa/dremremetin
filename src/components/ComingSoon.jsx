@@ -11,11 +11,11 @@ export default function ComingSoon() {
       <h1 className="text-5xl font-semibold text-sky-500">
         {comingSoonData.title[language]}
       </h1>
-      <p className="text-2xl text-sky-300 font-light">
+      <p className="text-xl text-sky-300 font-light -mt-2">
         {comingSoonData.article[language]}
       </p>
-      <div className="grid grid-rows-2 xl:grid-rows-1 xl:grid-cols-2 gap-2">
-        <WhatsappContact className={"w-full xl:w-fit rounded-lg !py-0"} />
+      <div className="grid grid-rows-2 xl:grid-rows-1 xl:grid-cols-2 gap-4">
+        <WhatsappContact className={"w-full rounded-lg !py-0"} />
         <a
           className="block text-md xl:text-2xl bg-sky-100 px-4 py-2 rounded-lg text-center font-light text-sky-900"
           href="tel:+905326543082"
