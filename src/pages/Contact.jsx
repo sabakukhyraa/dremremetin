@@ -85,6 +85,7 @@ export default function Contact() {
               image={photo3}
               articleArray={contactInformation.article[language]}
               additional={phoneNumbers}
+              theme={"dark"}
             />
             <h2 className="medium-title text-sky-900">
               {contactInformation.titles.clinics[language]}
@@ -94,11 +95,13 @@ export default function Contact() {
               image={photo}
               articleArray={articlesUskudar[language]}
               additional={buttonsUskudar[language]}
+              theme={"dark"}
             />
             <InfoSection
               title={"Ümraniye"}
               image={photo2}
               articleArray={articlesUmraniye[language]}
+              theme={"dark"}
             />
           </div>
         </div>
