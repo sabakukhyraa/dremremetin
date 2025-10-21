@@ -48,8 +48,8 @@ export default function TheNavbar({ languagePaths, mobileState, toggleState }) {
   const myRef = useRef(null);
 
   useEffect(() => {
-    toggleState(false)
-    setHeight(0)
+    toggleState(false);
+    setHeight(0);
   }, [location]);
 
   useEffect(() => {
@@ -70,12 +70,13 @@ export default function TheNavbar({ languagePaths, mobileState, toggleState }) {
         mobileState
           ? "pointer-events-auto xl:!h-auto"
           : "h-16 xl:!h-auto delay-300"
-      } backdrop-blur xl:rotate-0 !bg-opacity-80 z-10 animation`}
+      } backdrop-blur xl:rotate-0 !bg-opacity-80 z-20 animation`}
       style={{ height: `${64 + height}px` }}
     >
       <div className="flex xl:hidden justify-between items-center w-full h-16">
         <Link className="w-full h-full flex items-center" to={"/"}>
-          <img loading="lazy" 
+          <img
+            loading="lazy"
             className="h-5/6 py-2 ml-3 iphone-se"
             src={siteLogo}
             alt="logo"
