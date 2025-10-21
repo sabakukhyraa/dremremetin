@@ -44,7 +44,7 @@ const BusinessContact = () => {
         className="w-full mb-8 bg-sky-500 hover:bg-sky-600 text-white font-bold py-4 px-6 rounded-lg flex items-center justify-center gap-3 transition-colors duration-200 shadow-md hover:shadow-lg"
       >
         <Phone className="w-6 h-6" />
-        <span className="text-lg">Bizi Arayın</span>
+        <span className="text-lg">Randevu için arayınız</span>
       </button>
 
       {/* Working Hours Table */}
