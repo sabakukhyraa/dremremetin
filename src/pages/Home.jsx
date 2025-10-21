@@ -15,6 +15,7 @@ import RatingStars from "../components/RatingStars";
 import BusinessContact from "../components/BusinessContact";
 import ClinicPreview from "../components/ClinicPreview";
 import { Navigation, Clock } from "lucide-react";
+import { languagePaths } from "../services/pathNames";
 
 const API_KEY = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
 
@@ -91,7 +92,7 @@ export default function Home() {
               </Link>
             </div>
           </section>
-          <section className="bg-sky-200 w-full">
+          <section className="bg-gray-50 w-full">
             <div className="flex flex-col justify-center lg:justify-start lg:flex-row gap-6 xl:gap-12 container py-12">
               <ClinicPreview
                 image="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&h=500&fit=crop"
@@ -146,25 +147,33 @@ export default function Home() {
               />
             </div>
           </section>
-          <div className="relative w-full h-full xl:-mt-12 -mt-8 xl:pt-12 pt-8">
+          <div className="relative w-full h-full xl:-mt-24 -mt-16 xl:pt-12 pt-8">
             <section className="w-full h-full">
               <div className="grid grid-cols-1 xl:gap-12 gap-8">
-                <h2 className="xl:medium-title z-[5] small-title container text-sky-900">
-                  {language == "TR" ? "Örnek Vakalar" : "Example Cases"}
-                </h2>
                 <ul className="grid xl:grid-cols-1">{BeforeAfterCards}</ul>
-                <Link
-                  className="hover:underline container xl:-mt-6 mb-8 xl:justify-self-end text-sky-900 font-light text-end text-lg"
-                  to={
-                    language == "TR"
-                      ? "/hakkimizda#before-after"
-                      : "/about#before-after"
-                  }
-                >
-                  {language == "TR"
-                    ? "Daha fazla örnek vaka için >"
-                    : "View More Case >"}
-                </Link>
+                <div className="pb-8 lg:-mt-4 text-end container">
+                  <Link
+                    to={languagePaths.about[language]}
+                    className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105"
+                  >
+                    <span>
+                      {language === "TR" ? "Daha fazla" : "Read more"}
+                    </span>
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </Link>
+                </div>
               </div>
             </section>
           </div>
