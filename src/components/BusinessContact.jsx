@@ -44,14 +44,20 @@ const BusinessContact = () => {
         className="w-full mb-8 bg-sky-500 hover:bg-sky-600 text-white font-bold py-4 px-6 rounded-lg flex items-center justify-center gap-3 transition-colors duration-200 shadow-md hover:shadow-lg"
       >
         <Phone className="w-6 h-6" />
-        <span className="text-lg">Randevu için arayınız</span>
+        <span className="text-lg">
+          {language === "TR"
+            ? "Randevu için arayınız"
+            : "Call to make an appointment"}
+        </span>
       </button>
 
       {/* Working Hours Table */}
       <div className="bg-[#f8fbff] rounded-lg p-4">
         <div className="flex items-center gap-2 mb-4 text-gray-700">
           <Clock className="w-5 h-5" />
-          <h2 className="text-xl font-semibold">Çalışma Saatleri</h2>
+          <h2 className="text-xl font-semibold">
+            {language === "TR" ? "Çalışma Saatleri" : "Working Hours"}
+          </h2>
         </div>
 
         <div className="overflow-hidden rounded-lg border border-gray-200">
@@ -86,7 +92,10 @@ const BusinessContact = () => {
 
         {/* Optional: Add current status */}
         <div className="mt-4 text-center">
-          <StatusIndicator hours={workingHours[dayMap[today]]} />
+          <StatusIndicator
+            hours={workingHours[dayMap[today]]}
+            language={language}
+          />
         </div>
       </div>
     </div>
@@ -94,7 +103,7 @@ const BusinessContact = () => {
 };
 
 // Helper component to show if currently open/closed
-const StatusIndicator = ({ hours }) => {
+const StatusIndicator = ({ hours, language }) => {
   if (!hours) return null;
 
   const isOpen = () => {
@@ -124,7 +133,13 @@ const StatusIndicator = ({ hours }) => {
           open ? "bg-green-500" : "bg-red-500"
         }`}
       ></span>
-      {open ? "Şu an açık" : "Şu an kapalı"}
+      {language === "TR"
+        ? open
+          ? "Şu an açık"
+          : "Şu an kapalı"
+        : open
+        ? "Currently Open"
+        : "Currently Closed"}
     </div>
   );
 };

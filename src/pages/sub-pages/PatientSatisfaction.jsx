@@ -472,9 +472,7 @@ export default function PatientSatisfaction() {
                     className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105"
                   >
                     <span>
-                      {language === "TR"
-                        ? "Daha fazla yorum oku"
-                        : "Read more reviews"}
+                      {language === "TR" ? "Daha fazla" : "Read more"}
                     </span>
                     <svg
                       className="w-5 h-5"

@@ -1,5 +1,7 @@
-import { MapPin, Phone, Clock } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 import MapWithNotes from "./SmallMap";
+import { StateContext } from "../App";
+import { useContext } from "react";
 
 const ClinicPreview = ({
   image,
@@ -11,6 +13,8 @@ const ClinicPreview = ({
   googleMapsApiKey,
   locationNotes = [],
 }) => {
+  const { language } = useContext(StateContext);
+
   const handleCall = () => {
     window.location.href = `tel:${phone}`;
   };
@@ -39,14 +43,18 @@ const ClinicPreview = ({
             className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-4 px-6 rounded-xl flex items-center justify-center gap-3 transition-colors duration-200 shadow-md hover:shadow-lg mb-6"
           >
             <Phone className="w-5 h-5" />
-            <span>Hemen Ara: {phone}</span>
+            <span>
+              {language === "TR" ? "Hemen Ara:" : "Call Now:"} {phone}
+            </span>
           </button>
 
           {/* Map Section */}
           <div className="border-t pt-6">
             <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
               <MapPin className="w-5 h-5 text-red-500" />
-              Konum ve Yol Tarifi
+              {language === "TR"
+                ? "Konum ve Yol Tarifi"
+                : "Location and Directions"}
             </h3>
             <MapWithNotes
               latitude={latitude}
