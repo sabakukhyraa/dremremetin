@@ -4,6 +4,7 @@ import { StateContext } from "../App";
 import { languagePaths } from "../services/pathNames";
 import { footerData, links } from "../services/data";
 import Icons from "./Icons";
+import Map from "./Map";
 
 export default function TheFooter() {
   const { language } = useContext(StateContext);
@@ -80,7 +81,7 @@ export default function TheFooter() {
             <h2 className="text-sky-500 font-extralight text-3xl xl:text-5xl mb-2 w-full xl:text-end xl:mb-6">
               {footerData.titles.map[language]}
             </h2>
-            {/* <Map /> */}
+            <Map />
           </ul>
         </div>
         <div className="flex items-center xl:flex-row flex-col-reverse xl:gap-0 gap-4 justify-between xl:p-0 pb-2 text-sky-50 font-extralight">
