@@ -1,4 +1,4 @@
-import { HashRouter } from "react-router-dom";
+import { HashRouter, useLocation } from "react-router-dom";
 import Layout from "./Layout";
 import { createContext, useEffect, useState } from "react";
 import { languagePaths } from "./services/pathNames";
@@ -9,47 +9,49 @@ export const StateContext = createContext({
 });
 
 function currentLanguageFinder(currentRoute) {
-  for (const key of Object.keys(languagePaths)) {
-    if (languagePaths[key]["TR"] == currentRoute) {
-      return "TR";
-    } else if (languagePaths[key]["EN"] == currentRoute) {
-      return "EN";
-    } else {
-      if (Object.keys(languagePaths[key]).length != 2) {
-        for (const key2 of Object.keys(languagePaths[key])) {
-          if (key2 !== "TR" && key2 !== "EN") {
-            if (languagePaths[key][key2]["TR"] == currentRoute) {
-              return "TR";
-            } else if (languagePaths[key][key2]["EN"] == currentRoute) {
-              return "EN";
-            }
-          }
-        }
-      }
+  for (const section of Object.values(languagePaths)) {
+    // Ana seviyede kontrol
+    if (section.TR === currentRoute) return "TR";
+    if (section.EN === currentRoute) return "EN";
+
+    // Alt sayfalar varsa kontrol et
+    for (const subKey in section) {
+      const sub = section[subKey];
+      if (sub?.TR === currentRoute) return "TR";
+      if (sub?.EN === currentRoute) return "EN";
     }
   }
+  return "TR"; // varsayılan
 }
 
-function App() {
-  useEffect(() => {
-    setLanguage(currentLanguageFinder(location.pathname));
-  }, []);
-
-  const [language, setLanguage] = useState("TR");
-  const [toothState, setToothState] = useState("Soldan Seçiniz");
-
+function AppWrapper() {
   return (
     <HashRouter>
-      <StateContext.Provider
-        value={{ language, toothState, setToothState, setLanguage }}
-      >
-        <Layout />
-      </StateContext.Provider>
+      <App />
     </HashRouter>
   );
 }
 
-export default App;
+function App() {
+  const location = useLocation();
+  const [language, setLanguage] = useState("TR");
+  const [toothState, setToothState] = useState("Soldan Seçiniz");
 
-// TODO: https://developer.chrome.com/docs/lighthouse/performance/uses-text-compression/?utm_source=lighthouse&utm_medium=devtools
-// TODO: https://loadable-components.com/docs/getting-started/
+  useEffect(() => {
+    const path = location.hash
+      ? location.hash.replace("#", "")
+      : location.pathname;
+    const foundLang = currentLanguageFinder(path);
+    setLanguage(foundLang);
+  }, [location]);
+
+  return (
+    <StateContext.Provider
+      value={{ language, setLanguage, toothState, setToothState }}
+    >
+      <Layout />
+    </StateContext.Provider>
+  );
+}
+
+export default AppWrapper;
