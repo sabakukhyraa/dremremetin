@@ -23,7 +23,7 @@ export default function InfoSection({
       <div className="grid w-full xl:grid-cols-2 gap-0">
         {/* Image Container */}
         <div className="relative h-64 xl:h-[530px] overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-t from-sky-900/40 via-transparent to-transparent z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-sky-900/40 via-transparent to-transparent"></div>
           <img
             loading="lazy"
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
