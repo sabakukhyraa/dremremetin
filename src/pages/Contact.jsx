@@ -1,13 +1,6 @@
 import InfoSection from "../components/InfoSection";
-import photo from "../assets/ex-clinic.webp";
-import photo2 from "../assets/example-clinic.webp";
 import photo3 from "../assets/booking.webp";
-import {
-  articlesUmraniye,
-  articlesUskudar,
-  buttonsUskudar,
-  contactInformation,
-} from "../services/data";
+import { contactInformation } from "../services/data";
 import { useContext } from "react";
 import { StateContext } from "../App";
 import { Helmet, HelmetProvider } from "react-helmet-async";
@@ -98,7 +91,11 @@ export default function Contact() {
               <ClinicPreview
                 image="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&h=500&fit=crop"
                 title="Ümraniye"
-                description="Modern tıbbi ekipmanlar ile donatılmış yeni kliniğim."
+                description={
+                  language == "TR"
+                    ? "Modern tıbbi ekipmanlar ile donatılmış yeni kliniğim."
+                    : "My new clinic, equipped with modern medical equipment."
+                }
                 phone="+905326543082"
                 latitude={41.027976}
                 longitude={29.097352}
@@ -106,18 +103,28 @@ export default function Contact() {
                 locationNotes={[
                   {
                     icon: <Clock className="w-4 h-4" />,
-                    text: "Çarşı metro istasyonuna yakın - 2 dakika yürüme mesafesi",
+                    text:
+                      language == "TR"
+                        ? "Çarşı metro istasyonuna yakın - 2 dakika yürüme mesafesi"
+                        : "Close to Çarşı metro station - 2 minutes walking distance.",
                   },
                   {
                     icon: <Navigation className="w-4 h-4" />,
-                    text: 'Şile Otoyolu\'nda "Ümraniye Belediyesi" tabelalarını görünce sağa dönün',
+                    text:
+                      language == "TR"
+                        ? 'Şile Otoyolu\'nda "Ümraniye Belediyesi" tabelalarını görünce sağa dönün.'
+                        : 'Turn right when you see the "Ümraniye Belediyesi" signs on the Şile Highway.',
                   },
                 ]}
               />
               <ClinicPreview
                 image="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&h=500&fit=crop"
                 title="Üsküdar"
-                description="Babam ile birlikte çalıştığımız köklü geçmişe sahip klinik."
+                description={
+                  language == "TR"
+                    ? "Babam ile birlikte çalıştığımız köklü geçmişe sahip klinik."
+                    : "A well-established clinic where I work together with my father."
+                }
                 phone="+905326543082"
                 latitude={41.021261}
                 longitude={29.015405}
@@ -125,7 +132,10 @@ export default function Contact() {
                 locationNotes={[
                   {
                     icon: <Clock className="w-4 h-4" />,
-                    text: "Üsküdar Marmaray istasyonuna yakın - 5 dakika yürüme mesafesi",
+                    text:
+                      language == "TR"
+                        ? "Üsküdar Marmaray istasyonuna yakın - 5 dakika yürüme mesafesi"
+                        : "Close to Üsküdar Marmaray station - 5 minutes walking distance.",
                   },
                 ]}
               />

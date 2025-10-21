@@ -13,6 +13,10 @@ import { Link } from "react-router-dom";
 import Profile from "../components/Profile";
 import RatingStars from "../components/RatingStars";
 import BusinessContact from "../components/BusinessContact";
+import ClinicPreview from "../components/ClinicPreview";
+import { Navigation, Clock } from "lucide-react";
+
+const API_KEY = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
 
 export default function Home() {
   const { language } = useContext(StateContext);
@@ -88,23 +92,58 @@ export default function Home() {
             </div>
           </section>
           <section className="bg-sky-200 w-full">
-            <div className="grid grid-cols-1 xl:gap-12 gap-8 container py-8 xl:py-16">
-              <h2 className="xl:medium-title small-title xl:pb-4 text-sky-600">
-                {language == "TR" ? "Klinikler" : "Clinics"}
-              </h2>
-              <InfoSection
-                title={"Üsküdar"}
-                image={photo}
-                articleArray={articlesUskudar[language]}
-                additional={buttonsUskudar[language]}
-                theme={"dark"}
+            <div className="flex flex-col justify-center lg:justify-start lg:flex-row gap-6 xl:gap-12 container py-12">
+              <ClinicPreview
+                image="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&h=500&fit=crop"
+                title="Ümraniye"
+                description={
+                  language == "TR"
+                    ? "Modern tıbbi ekipmanlar ile donatılmış yeni kliniğim."
+                    : "My new clinic, equipped with modern medical equipment."
+                }
+                phone="+905326543082"
+                latitude={41.027976}
+                longitude={29.097352}
+                googleMapsApiKey={API_KEY} // Add your Google Maps API key here if you have one
+                locationNotes={[
+                  {
+                    icon: <Clock className="w-4 h-4" />,
+                    text:
+                      language == "TR"
+                        ? "Çarşı metro istasyonuna yakın - 2 dakika yürüme mesafesi"
+                        : "Close to Çarşı metro station - 2 minutes walking distance.",
+                  },
+                  {
+                    icon: <Navigation className="w-4 h-4" />,
+                    text:
+                      language == "TR"
+                        ? 'Şile Otoyolu\'nda "Ümraniye Belediyesi" tabelalarını görünce sağa dönün.'
+                        : 'Turn right when you see the "Ümraniye Belediyesi" signs on the Şile Highway.',
+                  },
+                ]}
               />
-              {/* <InfoSection
-                title={"Ümraniye"}
-                image={photo2}
-                articleArray={articlesUmraniye[language]}
-                theme={"dark"}
-              /> */}
+              <ClinicPreview
+                image="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&h=500&fit=crop"
+                title="Üsküdar"
+                description={
+                  language == "TR"
+                    ? "Babam ile birlikte çalıştığımız köklü geçmişe sahip klinik."
+                    : "A well-established clinic where I work together with my father."
+                }
+                phone="+905326543082"
+                latitude={41.021261}
+                longitude={29.015405}
+                googleMapsApiKey={API_KEY} // Add your Google Maps API key here if you have one
+                locationNotes={[
+                  {
+                    icon: <Clock className="w-4 h-4" />,
+                    text:
+                      language == "TR"
+                        ? "Üsküdar Marmaray istasyonuna yakın - 5 dakika yürüme mesafesi"
+                        : "Close to Üsküdar Marmaray station - 5 minutes walking distance.",
+                  },
+                ]}
+              />
             </div>
           </section>
           <div className="relative w-full h-full xl:-mt-12 -mt-8 xl:pt-12 pt-8">
