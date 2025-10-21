@@ -12,6 +12,10 @@ import { useContext } from "react";
 import { StateContext } from "../App";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import WhatsappContact from "../components/WhatsappContact";
+import ClinicPreview from "../components/ClinicPreview";
+import { Navigation, Clock } from "lucide-react";
+
+const API_KEY = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
 
 export default function Contact() {
   const { language } = useContext(StateContext);
@@ -90,19 +94,42 @@ export default function Contact() {
             <h2 className="medium-title text-sky-900">
               {contactInformation.titles.clinics[language]}
             </h2>
-            <InfoSection
-              title={"Üsküdar"}
-              image={photo}
-              articleArray={articlesUskudar[language]}
-              additional={buttonsUskudar[language]}
-              theme={"dark"}
-            />
-            <InfoSection
-              title={"Ümraniye"}
-              image={photo2}
-              articleArray={articlesUmraniye[language]}
-              theme={"dark"}
-            />
+            <div className="flex flex-col justify-center lg:justify-start lg:flex-row gap-12">
+              <ClinicPreview
+                image="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&h=500&fit=crop"
+                title="Ümraniye"
+                description="Modern tıbbi ekipmanlar ile donatılmış yeni kliniğim."
+                phone="+905326543082"
+                latitude={41.027976}
+                longitude={29.097352}
+                googleMapsApiKey={API_KEY} // Add your Google Maps API key here if you have one
+                locationNotes={[
+                  {
+                    icon: <Clock className="w-4 h-4" />,
+                    text: "Çarşı metro istasyonuna yakın - 2 dakika yürüme mesafesi",
+                  },
+                  {
+                    icon: <Navigation className="w-4 h-4" />,
+                    text: 'Şile Otoyolu\'nda "Ümraniye Belediyesi" tabelalarını görünce sağa dönün',
+                  },
+                ]}
+              />
+              <ClinicPreview
+                image="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&h=500&fit=crop"
+                title="Üsküdar"
+                description="Babam ile birlikte çalıştığımız köklü geçmişe sahip klinik."
+                phone="+905326543082"
+                latitude={41.021261}
+                longitude={29.015405}
+                googleMapsApiKey={API_KEY} // Add your Google Maps API key here if you have one
+                locationNotes={[
+                  {
+                    icon: <Clock className="w-4 h-4" />,
+                    text: "Üsküdar Marmaray istasyonuna yakın - 5 dakika yürüme mesafesi",
+                  },
+                ]}
+              />
+            </div>
           </div>
         </div>
       </div>
