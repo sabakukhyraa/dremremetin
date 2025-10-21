@@ -1,9 +1,12 @@
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useContext, useEffect, useState, useRef } from "react";
 import { StateContext } from "../../App";
-import { comments } from "../../services/dataComments";
 import dateConverter from "../../services/dateConverter";
 import RatingStars from "../../components/RatingStars";
+
+// Google Places API Configuration
+const API_KEY = import.meta.env.VITE_GOOGLE_PLACES_API_KEY;
+const PLACE_ID = import.meta.env.VITE_PLACE_ID;
 
 const CommentCard = ({ comment, index, language }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -198,10 +201,11 @@ const CommentCard = ({ comment, index, language }) => {
 
               {/* Date */}
               <time className="text-xs text-gray-400 italic">
-                {dateConverter(
-                  comment.time,
-                  language === "TR" ? "tr-TR" : "en-US"
-                )}
+                {comment.relative_time_description ||
+                  dateConverter(
+                    comment.time,
+                    language === "TR" ? "tr-TR" : "en-US"
+                  )}
               </time>
             </div>
           </div>
@@ -213,8 +217,98 @@ const CommentCard = ({ comment, index, language }) => {
 
 export default function PatientSatisfaction() {
   const { language } = useContext(StateContext);
+  const [reviews, setReviews] = useState([]);
+  const [placeDetails, setPlaceDetails] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const mapComments = comments[language].map((comment, index) => (
+  useEffect(() => {
+    // Load Google Places API and fetch reviews
+    const loadGooglePlacesAPI = () => {
+      // Check if Google Maps is already loaded
+      if (window.google && window.google.maps && window.google.maps.places) {
+        fetchPlaceReviews();
+        return;
+      }
+
+      // Load Google Maps API
+      const script = document.createElement("script");
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}&libraries=places&callback=initGooglePlaces`;
+      script.async = true;
+      script.defer = true;
+
+      window.initGooglePlaces = () => {
+        fetchPlaceReviews();
+      };
+
+      script.onerror = () => {
+        setError("Failed to load Google Maps API");
+        setLoading(false);
+      };
+
+      document.head.appendChild(script);
+    };
+
+    const fetchPlaceReviews = () => {
+      try {
+        // Create a hidden map element for the Places service
+        const map = new window.google.maps.Map(document.createElement("div"));
+        const service = new window.google.maps.places.PlacesService(map);
+
+        // Request place details including reviews
+        const request = {
+          placeId: PLACE_ID,
+          fields: ["name", "rating", "user_ratings_total", "reviews", "url"],
+          // Request reviews in the current language
+          language: language === "TR" ? "tr" : "en",
+        };
+
+        service.getDetails(request, (place, status) => {
+          if (status === window.google.maps.places.PlacesServiceStatus.OK) {
+            setPlaceDetails({
+              name: place.name,
+              rating: place.rating,
+              user_ratings_total: place.user_ratings_total,
+              url: place.url,
+            });
+
+            // Process and set reviews
+            if (place.reviews && place.reviews.length > 0) {
+              // Google Places API returns maximum 5 most relevant reviews
+              // Sort them by time (most recent first) if needed
+              const processedReviews = place.reviews
+                .sort((a, b) => b.time - a.time)
+                .map((review) => ({
+                  author_name: review.author_name,
+                  author_url: review.author_url,
+                  profile_photo_url: review.profile_photo_url,
+                  rating: review.rating,
+                  text: review.text,
+                  time: review.time * 1000, // Convert to milliseconds
+                  relative_time_description: review.relative_time_description,
+                }));
+
+              setReviews(processedReviews);
+            } else {
+              setError("No reviews found");
+            }
+          } else {
+            console.error("Places API error:", status);
+            setError(`Failed to fetch reviews: ${status}`);
+          }
+          setLoading(false);
+        });
+      } catch (err) {
+        console.error("Error fetching reviews:", err);
+        setError("An error occurred while fetching reviews");
+        setLoading(false);
+      }
+    };
+
+    loadGooglePlacesAPI();
+  }, [language]); // Re-fetch when language changes
+
+  const mapComments = reviews.map((comment, index) => (
     <CommentCard
       key={index}
       comment={comment}
@@ -277,22 +371,34 @@ export default function PatientSatisfaction() {
                       ? "Ortalama Değerlendirme"
                       : "Average Rating"}
                   </h2>
-                  <div className="flex items-center gap-4">
-                    <div className="transform scale-125">
-                      <RatingStars rate={5} />
+
+                  {loading ? (
+                    <div className="animate-pulse">
+                      <div className="h-12 bg-gray-200 rounded w-32 mx-auto"></div>
                     </div>
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-5xl xl:text-6xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-                        5.0
-                      </span>
-                      <span className="text-gray-500 text-lg">/5.0</span>
-                    </div>
-                  </div>
-                  <p className="text-sm text-gray-500 mt-3">
-                    {language === "TR"
-                      ? "100+ hasta yorumu"
-                      : "100+ patient reviews"}
-                  </p>
+                  ) : error ? (
+                    <p className="text-red-500 text-sm">{error}</p>
+                  ) : placeDetails ? (
+                    <>
+                      <div className="flex items-center gap-4">
+                        <div className="transform scale-125">
+                          <RatingStars rate={Math.round(placeDetails.rating)} />
+                        </div>
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-5xl xl:text-6xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                            {placeDetails.rating.toFixed(1)}
+                          </span>
+                          <span className="text-gray-500 text-lg">/5.0</span>
+                        </div>
+                      </div>
+                      <p className="text-sm text-gray-500 mt-3">
+                        {placeDetails.user_ratings_total}{" "}
+                        {language === "TR" ? "hasta yorumu" : "patient reviews"}
+                      </p>
+                    </>
+                  ) : (
+                    <p className="text-gray-500">No data available</p>
+                  )}
                 </div>
               </div>
             </div>
@@ -305,38 +411,87 @@ export default function PatientSatisfaction() {
                   : "Patient Reviews"}
               </h2>
 
-              <ul className="grid xl:grid-cols-2 grid-cols-1 gap-6 xl:gap-8">
-                {mapComments}
-              </ul>
+              {loading ? (
+                <div className="grid xl:grid-cols-2 grid-cols-1 gap-6 xl:gap-8">
+                  {[...Array(4)].map((_, index) => (
+                    <div
+                      key={index}
+                      className="bg-white rounded-2xl shadow-lg p-6 animate-pulse"
+                    >
+                      <div className="flex items-start justify-between mb-6">
+                        <div className="flex items-center gap-3">
+                          <div className="w-12 h-12 bg-gray-200 rounded-full"></div>
+                          <div>
+                            <div className="h-4 bg-gray-200 rounded w-32 mb-2"></div>
+                            <div className="h-3 bg-gray-200 rounded w-24"></div>
+                          </div>
+                        </div>
+                        <div className="h-4 bg-gray-200 rounded w-20"></div>
+                      </div>
+                      <div className="space-y-2">
+                        <div className="h-3 bg-gray-200 rounded w-full"></div>
+                        <div className="h-3 bg-gray-200 rounded w-5/6"></div>
+                        <div className="h-3 bg-gray-200 rounded w-4/6"></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : error ? (
+                <div className="text-center py-12">
+                  <p className="text-red-500 mb-4">{error}</p>
+                  <p className="text-gray-600">
+                    {language === "TR"
+                      ? "Yorumlar yüklenirken bir hata oluştu. Lütfen daha sonra tekrar deneyin."
+                      : "An error occurred while loading reviews. Please try again later."}
+                  </p>
+                </div>
+              ) : reviews.length > 0 ? (
+                <ul className="grid xl:grid-cols-2 grid-cols-1 gap-6 xl:gap-8">
+                  {mapComments}
+                </ul>
+              ) : (
+                <div className="text-center py-12">
+                  <p className="text-gray-600">
+                    {language === "TR"
+                      ? "Henüz yorum bulunmamaktadır."
+                      : "No reviews available yet."}
+                  </p>
+                </div>
+              )}
 
               {/* More reviews link */}
-              <div className="text-center pt-8">
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://search.google.com/local/reviews?placeid=ChIJO0vErme5yhQRTKyu9D3Ajtw"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105"
-                >
-                  <span>
-                    {language === "TR"
-                      ? "Daha fazla yorum oku"
-                      : "Read more reviews"}
-                  </span>
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+              {placeDetails && (
+                <div className="text-center pt-8">
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={
+                      placeDetails.url ||
+                      `https://search.google.com/local/reviews?placeid=${PLACE_ID}`
+                    }
+                    className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </a>
-              </div>
+                    <span>
+                      {language === "TR"
+                        ? "Daha fazla yorum oku"
+                        : "Read more reviews"}
+                    </span>
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              )}
             </section>
           </div>
         </div>
