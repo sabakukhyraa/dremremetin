@@ -2,9 +2,14 @@ import { comingSoonData } from "../services/data";
 import { StateContext } from "../App";
 import { useContext } from "react";
 import WhatsappContact from "./WhatsappContact";
+import { Phone } from "lucide-react";
 
 export default function ComingSoon() {
   const { language } = useContext(StateContext);
+
+  const handlePhoneClick = () => {
+    window.location.href = `tel:${phoneNumber}`;
+  };
 
   return (
     <div className="flex flex-col justify-center items-center w-full p-4 rounded-lg gap-2 bg-sky-800 shadow-lg">
@@ -16,12 +21,15 @@ export default function ComingSoon() {
       </p>
       <div className="grid grid-rows-2 xl:grid-rows-1 xl:grid-cols-2 gap-4">
         <WhatsappContact className={"w-full rounded-lg !py-0"} />
-        <a
-          className="block text-md xl:text-2xl bg-sky-100 px-4 py-2 rounded-lg text-center font-light text-sky-900"
-          href="tel:+905326543082"
+        <button
+          onClick={handlePhoneClick}
+          className="w-full bg-sky-500 hover:bg-sky-600 not-italic font-normal text-white py-2 px-6 rounded-lg flex items-center justify-center gap-3 transition-colors duration-200 shadow-md hover:shadow-lg"
         >
-          {comingSoonData.callUs[language]}
-        </a>
+          <Phone className="w-6 h-6" />
+          <span className="text-md xl:text-xl">
+            {comingSoonData.callUs[language]}
+          </span>
+        </button>
       </div>
     </div>
   );

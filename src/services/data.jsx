@@ -519,8 +519,8 @@ export const comingSoonData = {
     TR: "Şimdilik bizi arayarak randevu alabilirsiniz.",
   },
   callUs: {
-    EN: "Click to Call!",
-    TR: "Aramak İçin Tıklayın!",
+    EN: "Call for an appointment",
+    TR: "Randevu için arayınız",
   },
 };
 
