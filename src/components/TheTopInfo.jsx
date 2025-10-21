@@ -68,10 +68,12 @@ export default function TheTopInfo() {
         >
           <div className="flex flex-col">
             <span className="text-2xl font-bold text-white tracking-tight">
-              Uzm. Dr. Emre Metin
+              {language === "TR"
+                ? "Uzm. Dr. Emre Metin"
+                : "Dr. Med. Dent. Emre Metin"}
             </span>
             <span className="text-xs text-blue-200 tracking-widest uppercase">
-              Ortodonti Uzmanı
+              {language === "TR" ? "Ortodonti Uzmanı" : "Orthodontist"}
             </span>
           </div>
         </a>
