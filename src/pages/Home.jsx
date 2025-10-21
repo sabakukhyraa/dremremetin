@@ -1,24 +1,18 @@
 import HomeSlider from "../components/HomeSlider";
 import InfoSection from "../components/InfoSection";
 import photo from "../assets/ex-clinic.webp";
-import photo2 from "../assets/example-clinic.webp";
 import { useContext } from "react";
 import { StateContext } from "../App";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import siteIcon from "../assets/site-icon.png";
 
-import {
-  articlesUmraniye,
-  articlesUskudar,
-  buttonsUskudar,
-  beforeAfter,
-} from "../services/data";
+import { articlesUskudar, buttonsUskudar, beforeAfter } from "../services/data";
 
-import TeethNumber from "../components/teethGraph/TeethNumber";
 import BeforeAfterCard from "../components/BeforeAfterCard";
 import { Link } from "react-router-dom";
 import Profile from "../components/Profile";
 import RatingStars from "../components/RatingStars";
+import BusinessContact from "../components/BusinessContact";
 
 export default function Home() {
   const { language } = useContext(StateContext);
@@ -69,6 +63,7 @@ export default function Home() {
           {/* <TeethNumber /> */}
 
           <Profile theme={"dark"} isShortened={true} />
+          <BusinessContact />
           <section className="3xl:py-32 2xl:py-20 py-8">
             <div className="flex flex-col items-center justify-center container">
               <h2 className="xl:small-title text-lg font-semibold text-sky-800">
