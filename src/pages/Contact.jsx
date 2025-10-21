@@ -94,7 +94,7 @@ export default function Contact() {
             <h2 className="medium-title text-sky-900">
               {contactInformation.titles.clinics[language]}
             </h2>
-            <div className="flex flex-col justify-center lg:justify-start lg:flex-row gap-12">
+            <div className="flex flex-col justify-center lg:justify-start lg:flex-row gap-6 xl:gap-12">
               <ClinicPreview
                 image="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&h=500&fit=crop"
                 title="Ümraniye"
