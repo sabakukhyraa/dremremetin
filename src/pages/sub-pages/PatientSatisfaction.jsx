@@ -259,7 +259,7 @@ export default function PatientSatisfaction() {
             }
           />
         </Helmet>
-        <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-12">
+        <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white pb-12 pt-28 -mt-16">
           <div className="container mx-auto px-4">
             {/* Header */}
             <div className="text-center mb-12">
