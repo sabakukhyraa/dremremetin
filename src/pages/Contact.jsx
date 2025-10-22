@@ -51,8 +51,8 @@ export default function Contact() {
             name="description"
             content={
               language == "TR"
-                ? "Emre Metin'in iletişim bilgileri ile hemen bir randevu alın!"
-                : "Make an appointment now with Emre Metin's contact information!"
+                ? "İletişim bilgileri ile hemen bir randevu\u00A0alın!"
+                : "Make an\u00A0appointment now with the contact\u00A0information!"
             }
           />
           <link
@@ -93,8 +93,8 @@ export default function Contact() {
                 title="Ümraniye"
                 description={
                   language == "TR"
-                    ? "Modern tıbbi ekipmanlar ile donatılmış yeni kliniğim."
-                    : "My new clinic, equipped with modern medical equipment."
+                    ? "Modern tıbbi ekipmanlar ile donatılmış yeni\u00A0kliniğim."
+                    : "My new clinic, equipped with modern medical\u00A0equipment."
                 }
                 phone="+905326543082"
                 latitude={41.027976}
@@ -105,15 +105,15 @@ export default function Contact() {
                     icon: <Clock className="w-4 h-4" />,
                     text:
                       language == "TR"
-                        ? "Çarşı metro istasyonuna yakın - 2 dakika yürüme mesafesi"
-                        : "Close to Çarşı metro station - 2 minutes walking distance.",
+                        ? "Çarşı metro istasyonuna yakın - 2\u00A0dakika yürüme mesafesi"
+                        : "Close to Çarşı metro station - 2\u00A0minutes walking distance.",
                   },
                   {
                     icon: <Navigation className="w-4 h-4" />,
                     text:
                       language == "TR"
-                        ? 'Şile Otoyolu\'nda "Ümraniye Belediyesi" tabelalarını görünce sağa dönün.'
-                        : 'Turn right when you see the "Ümraniye Belediyesi" signs on the Şile Highway.',
+                        ? 'Şile Otoyolu\'nda "Ümraniye Belediyesi" tabelalarını görünce sağa\u00A0dönün.'
+                        : 'Turn right when you see the "Ümraniye\u00A0Belediyesi" signs on the Şile\u00A0Highway.',
                   },
                 ]}
               />
@@ -123,7 +123,7 @@ export default function Contact() {
                 description={
                   language == "TR"
                     ? "Babam ile birlikte çalıştığımız köklü geçmişe sahip klinik."
-                    : "A well-established clinic where I work together with my father."
+                    : "A well-established clinic where I work together with\u00A0my\u00A0father."
                 }
                 phone="+905326543082"
                 latitude={41.021261}
@@ -134,8 +134,8 @@ export default function Contact() {
                     icon: <Clock className="w-4 h-4" />,
                     text:
                       language == "TR"
-                        ? "Üsküdar Marmaray istasyonuna yakın - 5 dakika yürüme mesafesi"
-                        : "Close to Üsküdar Marmaray station - 5 minutes walking distance.",
+                        ? "Üsküdar\u00A0Marmaray istasyonuna yakın - 5\u00A0dakika yürüme mesafesi"
+                        : "Close to Üsküdar\u00A0Marmaray station - 5\u00A0minutes walking distance.",
                   },
                 ]}
               />

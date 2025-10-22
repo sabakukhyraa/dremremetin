@@ -18,61 +18,55 @@ import { Link } from "react-router-dom";
 export const homeSliderData = {
   TR: [
     {
-      title: "Gerekliyse tellenin!",
-      article: "Hayır, tel takmak yemek yemenize engel değil.",
+      title: "Gülüşünüzü planlayın.",
+      article:
+        "Ortodontik tedavi yalnızca dişleri düzeltmez; yüz\u00A0estetiğinizi ve özgüveninizi\u00A0de\u00A0yeniler.",
       image: ex2,
     },
     {
-      title: "Ortodonti bir bilimdir.",
-      article: "Aynı zamanda sanattır, gülüşünüzü güzelleştireceğim.",
-      image: ex3,
-    },
-    {
-      title: "Dişlerinizi fırçalayın.",
+      title: "Küçük düzeltmeler, büyük farklar.",
       article:
-        "Dişlerini fırçalayanlar %68 oranında diş hekimlerine ihtiyaç duymazlar.",
+        "Şeffaf plaklarla konforlu, görünmez ve etkili bir tedavi\u00A0süreci mümkündür.",
       image: ex1,
     },
     {
-      title: "Korkmayın.",
+      title: "Sağlıklı dişler, güzel bir gülümseme.",
       article:
-        "Dişlerinizin güzelliği kadar diş, çene ve ağız sağlığınız için de bir ortodontist'e danışın.",
+        "Ortodonti yalnızca estetik değil, ağız ve çene sağlığı için de önemli bir yatırımdır.",
+      image: ex3,
+    },
+    {
+      title: "Düzenli kontroller önemlidir.",
+      article:
+        "Tedavi süresince yapılan küçük kontroller, büyük\u00A0sonuçların anahtarıdır.",
       image: ex4,
     },
-    // {
-    //   title: "Lorem ipsum dolor sit amet.",
-    //   article: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    //   image: ex5,
-    // },
   ],
   EN: [
     {
-      title: "Get braces if necessary!",
+      title: "Design your smile.",
       article:
-        "No, wearing braces does not prevent you from eating. Please DO NOT believe anyone who says 'I had braces and lost a lot of weight'.",
+        "Orthodontic\u00A0treatment not only straightens teeth but also enhances facial\u00A0harmony and self-confidence.",
       image: ex2,
     },
     {
-      title: "Orthodontics is a science.",
-      article: "It is also art, I'm going to make your smile beautiful.",
-      image: ex3,
-    },
-    {
-      title: "Brush your teeth.",
-      article: "68% of those who brush their teeth don't need a dentist.",
+      title: "Small adjustments, big differences.",
+      article:
+        "With clear aligners, you can achieve a comfortable, nearly\u00A0invisible, and effective treatment\u00A0process.",
       image: ex1,
     },
     {
-      title: "Don't be afraid.",
+      title: "Healthy teeth, confident smile.",
       article:
-        "Consult an orthodontist for your teeth, jaw and oral health as well as the beauty of your teeth.",
+        "Orthodontics is not just about aesthetics — it’s a lasting investment in your oral and jaw\u00A0health.",
+      image: ex3,
+    },
+    {
+      title: "Regular check-ups matter.",
+      article:
+        "Consistent follow-ups throughout your treatment lead to the best long-term\u00A0results.",
       image: ex4,
     },
-    // {
-    //   title: "Lorem ipsum dolor sit amet.",
-    //   article: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    //   image: ex5,
-    // },
   ],
 };
 
@@ -292,25 +286,25 @@ export const aboutUs = {
             Kendimi öncelikle saygın bir ortodontist diş hekimi olarak
             tanımlamak isterim. Ortodonti alanındaki uzmanlığımla, hastalarımın
             sağlıklı gülüşlere kavuşmasına ve kendilerini özgüvenle ifade
-            etmelerine yardımcı olmaktan büyük mutluluk duyuyorum.
+            etmelerine yardımcı olmaktan büyük mutluluk&nbsp;duyuyorum.
           </p>
           <p>
             Ümraniye'deki yeni kliniğim, son teknoloji ekipmanlarla donatılmış
             modern bir ortamda hizmet veriyor. Hastalarımın konforu ve güvenliği
             her zaman önceliğimdir. Uzmanlık alanımda sürekli güncellenen bilgi
-            ve teknikleri takip ederek, en etkili ve kişiye özel tedavi planları
-            sunarım.
+            ve teknikleri takip ederek, en etkili ve kişiye özel tedavi
+            planları&nbsp;sunarım.
           </p>
           <p>
             Her hasta için dikkatlice yapılan ön muayeneler ve detaylı teşhis
             süreçleri, en uygun tedavi yöntemini belirlememize yardımcı olur.
             Tedavi sürecinde hastalarıma açık iletişim ve bilgilendirme
-            sağlayarak, onları tedavi sürecine dahil ederim.
+            sağlayarak, onları tedavi sürecine dahil&nbsp;ederim.
           </p>
           <p>
             Kliniğimde sunduğumuz hizmetler arasında sabit braketler, şeffaf
             plaklar, estetik kaygılarını gideren özel tedaviler ve çocuklarda
-            erken dönem ortodontik müdahaleler bulunmaktadır.{" "}
+            erken&nbsp;dönem ortodontik müdahaleler&nbsp;bulunmaktadır.{" "}
             <Link
               className="hover:underline italic font-extralight"
               to="/tedavi-cesitleri#treatments"
@@ -320,7 +314,7 @@ export const aboutUs = {
           </p>
           <p>
             Sizin için daha sağlıklı ve güzel bir gülümseme için benimle
-            iletişime geçmekten çekinmeyin.{" "}
+            iletişime geçmekten&nbsp;çekinmeyin.{" "}
             <Link
               className="hover:underline italic font-extralight"
               to="/iletisim"
@@ -337,26 +331,27 @@ export const aboutUs = {
           <p>
             Let me introduce myself as a distinguished orthodontist and dentist.
             As an expert in orthodontics, I take immense pleasure in helping my
-            patients achieve healthy smiles and express themselves confidently.
+            patients achieve healthy smiles and express&nbsp;themselves
+            confidently.
           </p>
           <p>
             My clinic provides services in a modern environment equipped with
             state-of-the-art facilities. Patient comfort and safety are always
             my top priorities. I stay up-to-date with the latest advancements in
-            my field to offer the most effective and personalized treatment
-            plans.
+            my field to offer the most effective and personalized
+            treatment&nbsp;plans.
           </p>
           <p>
             Thorough preliminary examinations and detailed diagnostics are
             conducted for each patient, allowing us to determine the most
             suitable treatment approach. Throughout the treatment process, I
             maintain open communication and provide patients with essential
-            information, ensuring their active involvement.
+            information, ensuring their&nbsp;active&nbsp;involvement.
           </p>
           <p>
             Our range of services includes fixed braces, clear aligners,
             specialized treatments addressing aesthetic concerns, and early
-            orthodontic interventions for children.
+            orthodontic interventions for&nbsp;children.
             <Link
               className="hover:underline italic font-extralight"
               to="/treatments#treatments"
@@ -366,7 +361,7 @@ export const aboutUs = {
           </p>
           <p>
             Feel free to reach out to me for a healthier and more beautiful
-            smile tailored just for you.
+            smile tailored just for&nbsp;you.
             <Link
               className="hover:underline italic font-extralight"
               to="/contact"
@@ -395,7 +390,7 @@ export const aboutMe = {
           dentistry. Dentistry was a natural choice for me, considering my
           father's profession and the detailed education provided by the
           Semmelweis University, which has a history of 250 years and has
-          produced Nobel laureates.
+          produced Nobel&nbsp;laureates.
         </p>
         <p>
           During my high school years, due to my interest in biology and
@@ -404,15 +399,15 @@ export const aboutMe = {
           years after high school in the United States and some European
           countries. I successfully spent five years at the faculty and
           graduated with the title of "dr.med.dent." My thesis focused on the
-          comparison of synthetic and natural bone grafts.
+          comparison of synthetic and natural bone&nbsp;grafts.
         </p>
         <p>
           Having a globally recognized diploma from this university, I had the
           opportunity to continue my doctoral education without an exam.
           However, I decided to return to my home country to be close to my
           family and loved ones. My education in English gave me access to
-          foreign resources both in my daily life and in professional
-          terminology.
+          foreign resources both in my daily life and in
+          professional&nbsp;terminology.
         </p>
         <p>
           Upon returning to Turkey, with the desire to continue my academic
@@ -422,22 +417,23 @@ export const aboutMe = {
           specialization thesis involved significant research, including
           clinical experiments, micro-tomography examinations, and 3D modeling
           analysis, to compare the effects of different forces used in
-          orthodontics on root resorption.
+          orthodontics on root&nbsp;resorption.
         </p>
         <p>
           After successfully completing my thesis and specialization exam, I
-          earned the title of specialist doctor. Following this, my husband, who
-          is also a dentist, and I returned to my hometown, Üsküdar, and opened
-          our own clinic. Currently, we provide services in orthodontics and
-          general dentistry at our clinic in Üsküdar. I keep myself up-to-date
-          with yearly innovations, applying treatments such as transparent
-          aligners, mini-screws, and self-ligating braces. Orthodontics is such
-          an interesting field where one needs to solve various biomechanical
-          puzzles specific to each case while keeping aesthetics, art, and
-          medical approach in mind. The satisfaction I feel when function,
-          beauty, and health come together motivates me to work harder. As a
-          result, I don't shy away from challenging cases, enjoy the details,
-          and view my profession with great love, almost like a hobby.
+          earned the title of specialist&nbsp;doctor. Following this, my wife,
+          who is also a dentist, and I returned to my hometown, Üsküdar, and
+          opened our own&nbsp;clinic. Currently, we provide services in
+          orthodontics and general dentistry at our clinic in Üsküdar. I keep
+          myself up-to-date with yearly innovations, applying treatments such as
+          transparent aligners, mini-screws, and self-ligating&nbsp;braces.
+          Orthodontics is such an interesting field where one needs to solve
+          various biomechanical puzzles specific to each case while keeping
+          aesthetics, art, and medical approach in mind. The satisfaction I feel
+          when function, beauty, and health come together motivates me to work
+          harder. As a result, I don't shy away from challenging cases, enjoy
+          the details, and view my profession with great&nbsp;love,
+          almost&nbsp;like&nbsp;a&nbsp;hobby.
         </p>
       </article>
     ),
@@ -446,8 +442,8 @@ export const aboutMe = {
         <p>
           Ben neredeyse tamamı hekim olan bir ailenin mensubuyum. Bu mesleği
           mühendislik, mimarlık, tıp gibi bir sürü seçenek arasındaki
-          alternatiflerden biri olarak seçmedim. Diş hekimliği benim için net
-          bir tercihti.
+          alternatiflerden biri olarak seçmedim. Diş hekimliği benim için
+          net&nbsp;bir&nbsp;tercihti.
         </p>
         <p>
           Babamın da mesleği olan diş hekimliği hayatıma akademisyen dostlarımız
@@ -460,7 +456,7 @@ export const aboutMe = {
           uluslararası akademisyen heyeti tarafından direk muafiyet alarak kabul
           edildiğim fakültemde başarılı 5 sene geçirerek "dr.med.dent" unvanıyla
           mezun oldum. Buradaki tezimin konusu, suni ve doğal kemik greftlerinin
-          mukayesesi ile ilgiliydi.
+          mukayesesi ile&nbsp;ilgiliydi.
         </p>
         <p>
           Dünyanın her yerinde diploma denkliği olan bu üniversitede sınavsız
@@ -470,7 +466,7 @@ export const aboutMe = {
           sevdiklerime yakın olabilmek için ülkeme döndüm. Eğitimimin tamamı
           İngilizce olduğu için hem günlük kullanımda hem de mesleki
           terminolojiye hakimiyet açısından yabancı kaynaklara erişim imkanım
-          oldukça artmıştı.
+          oldukça&nbsp;artmıştı.
         </p>
         <p>
           Türkiye'ye döndükten sonra akademik hayatıma devam etmek istediğim
@@ -484,7 +480,7 @@ export const aboutMe = {
           gibi üç temel aşaması olan önemli bir çalışmaydı. Zorlu bir süreç olsa
           da sonuçları itibariyle ortodontide ugulanan kuvvetler ile diş
           köklerinin zarar görmemesini gözetmek açısından mesleğime katkısı oldu
-          diye düşünüyorum.
+          diye&nbsp;düşünüyorum.
         </p>
         <p>
           Tezimi ve uzmanlık bitirme sınavını tamamlayarak uzman doktor unvanını
@@ -500,7 +496,7 @@ export const aboutMe = {
           gerekir. Sonuçta fonksiyon, güzellik ve sağlık birbirini
           tamamladığında duyulan mesleki tatmin insanı daha çok çalışmaya iter.
           Bu sebeple zorlu vakalardan kaçmıyor, detaylardan keyif alıyor, en
-          önemlisi de mesleğimi adeta hobi olarak görüyor ve çok seviyorum.
+          önemlisi de mesleğimi adeta hobi olarak görüyor ve çok&nbsp;seviyorum.
         </p>
       </article>
     ),

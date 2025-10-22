@@ -55,7 +55,7 @@
     @apply text-3xl font-semibold;
   }
   .medium-title {
-    @apply text-5xl font-semibold;
+    @apply text-5xl font-semibold !important;
   }
   .large-title {
     @apply text-7xl font-semibold;
